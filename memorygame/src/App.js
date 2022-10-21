@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react";
 import './App.css';
 import SingleCard from "./components/SingleCard";
-
+//cards
 const cardImages = [
   {"src":"/images/helmet.png", matched:false},
   {"src":"/images/potion.png",matched:false},
