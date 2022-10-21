@@ -1,0 +1,41 @@
+.single-card-container{
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid white;
+    display: flex;
+    flex-direction: column;
+    margin: 0.3rem;
+}
+.single-card-container img{
+    width: 140px;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+}
+.front{
+    transform: rotateY(90deg);
+    position: absolute;
+    transition: all ease-in 0.2s;
+}
+.flipped .front{
+    transform: rotateY(0deg);
+    transition-delay: 0.2s;
+}
+.back{
+    transition: all ease-in 0.5s;
+    transition-delay: 0.2s;
+
+}
+.flipped .back{
+    transform: rotateY(90deg);
+    transition-delay: 0s;
+}
+
+@media screen and (max-width:1000px){
+    .single-card-container{
+        padding: 0px;
+        margin: 0.5rem;
+        width: 40%;
+    }
+}
