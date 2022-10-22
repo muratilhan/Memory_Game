@@ -3,19 +3,18 @@ import './App.css';
 import SingleCard from "./components/SingleCard";
 //cards
 const cardImages = [
-  {"src":"/images/helmet.png", matched:false},
-  {"src":"/images/potion.png",matched:false},
-  {"src":"/images/ring.png",matched:false},
-  {"src":"/images/scroll.png",matched:false},
-  {"src":"/images/sword.png",matched:false},
-  {"src":"/images/shield.png",matched:false},
+  {"src":"/images/gollum.jpg", matched:false,text:"MY PRECIOUSS"},
+  {"src":"/images/galadriel.jpg",matched:false,text:"EVEN THE SMALLES PERSON CAN CHANGE THE COURSE OF THE FUTURE"},
+  {"src":"/images/aragorn.jpg",matched:false,text:"THERE IS ALWAYS HOPE !"},
+  {"src":"/images/sauron.jpg",matched:false,text:"ONE RING TO RULL THEM ALL"},
+  {"src":"/images/wk2.jpg",matched:false,text:"NO MAN CAN KILL ME !"},
+  {"src":"/images/gandalf.jpg",matched:false,text:"IT'S THE DEEP BREATH BEFORE THE PLUNGE"},
  
 ]
 
 
 function App() {
 
-  
   const [cards, setCards] = useState([]);
   const [turns, setTurns] = useState(0)
   const [choiceOne, setChoiceOne] = useState(null)
@@ -44,9 +43,12 @@ function App() {
   useEffect(()=>{
       
       if(choiceOne && choiceTwo){
+
         setDisabled(true)
         if(choiceOne.src === choiceTwo.src){
           setMatchedCardsAmount(prev => prev+1)
+          setQuote(choiceOne.text)
+          
           setCards(prev => {
             return prev.map(card => {
               if( card.src === choiceOne.src){
@@ -69,7 +71,6 @@ function App() {
     if(matchedCardsAmount === 6){
       setIsOver(true)
     }
-    console.log(matchedCardsAmount)
   },[matchedCardsAmount])
 
 
@@ -80,13 +81,19 @@ function App() {
     setDisabled(false)
   }
 
+  const [quote, setQuote] = useState("");
+
   
   return (
     <div className="App">
-      <h1>Memory Game</h1>
+       
+      <h1 >WELLCOME TO MIDDLE EARTH</h1>
+        
       <button onClick={shuffleCards} className="header-button">New Game</button>
       <span className="turns"><b>Turns:</b><span style={{marginLeft:"1rem"}}>{turns}</span></span>
-       { isOver && <h1 className="over-p" style={{color:"yellow"}}> Congratulations, You have won the game !</h1> } 
+      
+       
+       { <p className="quote"> <b>{quote}</b> </p> }
       <div className="cards">
         {cards.map((card)=>(
           <SingleCard  
@@ -99,7 +106,7 @@ function App() {
         )
         )}
       </div>
-      
+      { isOver && <h1 className="over-p" style={{color:"yellow"}}> Congratulations, You have won the game !</h1> } 
     </div>
   );
 }

@@ -31,6 +31,13 @@
     transform: rotateY(90deg);
     transition-delay: 0s;
 }
+.quote{
+    color:white;
+    font-size: 28px;
+    margin: 0px;
+    color: rgb(255, 169, 8);
+    padding: 1rem;
+}
 
 @media screen and (max-width:1000px){
     .single-card-container{
